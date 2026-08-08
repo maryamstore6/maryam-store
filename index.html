@@ -3,140 +3,115 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maryam Store — Borong Botol & Shaker Murah</title>
+<title>Maryam Store — Borong Botol &amp; Shaker Murah</title>
 <style>
   :root{
-    --ink:#1a1a1a;
-    --muted:#6b7280;
-    --line:#e5e7eb;
-    --bg:#ffffff;
-    --accent:#e11d48;
-    --soft:#fff1f2;
-    --radius:12px;
-    --shadow:0 1px 2px rgba(0,0,0,.05), 0 4px 16px rgba(0,0,0,.06);
+    --ink:#171717; --muted:#6b7280; --line:#e5e7eb; --bg:#fafafa;
+    --accent:#e11d48; --soft:#fff1f2; --green:#16a34a;
+    --radius:14px;
+    --shadow:0 1px 2px rgba(0,0,0,.04), 0 6px 20px rgba(0,0,0,.06);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{
-    font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif;
-    background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;
-  }
-  /* ---------- Navbar ---------- */
+  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+
+  /* ---------- Header ---------- */
   header{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.06)}
-  .nav{max-width:1100px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:16px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem;letter-spacing:-.01em;text-decoration:none;color:var(--ink)}
-  .brand .dot{width:34px;height:34px;border-radius:9px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:.85rem;flex:none}
+  .nav{max-width:1080px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:14px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem;text-decoration:none;color:var(--ink)}
+  .brand .dot{width:34px;height:34px;border-radius:10px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:.85rem;flex:none}
   .nav-links{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
   .nav-links a{padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--muted);font-weight:600;font-size:.9rem}
   .nav-links a:hover{color:var(--ink);background:#f3f4f6}
-  .nav-links a.active{color:var(--accent);background:var(--soft)}
 
-  /* ---------- Banner ---------- */
-  .banner{max-width:1100px;margin:24px auto 8px;padding:0 20px}
-  .banner-inner{
-    background:linear-gradient(120deg,#fff1f2 0%,#ffe4e6 55%,#fff 100%);
-    border:1px solid var(--line);border-radius:16px;padding:28px 28px 26px;
-    display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between;
-  }
-  .banner h1{font-size:1.45rem;letter-spacing:-.02em;line-height:1.25}
-  .banner p{color:var(--muted);margin-top:6px;font-size:.95rem;max-width:34em}
-  .banner .tag{display:inline-block;margin-top:12px;background:var(--accent);color:#fff;font-size:.78rem;font-weight:700;padding:4px 10px;border-radius:999px}
+  /* ---------- Hero (2 gambar) ---------- */
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  .hero{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px auto 0}
+  .hero-card{position:relative;border-radius:18px;overflow:hidden;min-height:230px;display:block;text-decoration:none;box-shadow:var(--shadow)}
+  .hero-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero-card::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,.62) 0%,rgba(10,10,10,.18) 55%,rgba(10,10,10,0) 100%)}
+  .hero-txt{position:absolute;left:0;bottom:0;padding:22px;z-index:2;max-width:75%}
+  .hero-txt h2{color:#fff;font-size:1.35rem;letter-spacing:-.01em;line-height:1.15;text-shadow:0 2px 8px rgba(0,0,0,.3)}
+  .hero-txt p{color:#fde8ec;font-size:.86rem;margin-top:6px;text-shadow:0 1px 4px rgba(0,0,0,.35)}
+  .hero-card .cta{display:inline-block;margin-top:12px;background:#fff;color:var(--accent);font-weight:800;font-size:.8rem;padding:7px 14px;border-radius:999px}
 
-  /* ---------- Category chips ---------- */
-  .chips{max-width:1100px;margin:20px auto 0;padding:0 20px;display:flex;gap:8px;flex-wrap:wrap}
-  .chip{
-    border:1px solid var(--line);background:#fff;color:var(--ink);
-    padding:9px 16px;border-radius:999px;font-weight:600;font-size:.88rem;cursor:pointer;
-    min-height:44px;transition:all .15s;
-  }
-  .chip:hover{border-color:#d1d5db}
-  .chip.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+  /* ---------- Category pills ---------- */
+  .cats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px auto 0}
+  .cat-pill{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;display:flex;align-items:center;gap:10px;min-height:52px;transition:all .15s;text-align:left}
+  .cat-pill:hover{border-color:var(--accent);box-shadow:var(--shadow)}
+  .cat-pill.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  .cat-pill .ic{font-size:1.2rem}
+  .cat-pill .tx{font-weight:700;font-size:.9rem;line-height:1.2}
+  .cat-pill .cnt{font-size:.72rem;opacity:.75}
 
   /* ---------- Product grid ---------- */
-  .grid{max-width:1100px;margin:22px auto 60px;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
-  .card{
-    border:1px solid var(--line);border-radius:var(--radius);background:#fff;overflow:hidden;
-    display:flex;flex-direction:column;transition:box-shadow .18s, transform .18s;
-  }
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin:22px auto 60px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .18s,transform .18s}
   .card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
-  .thumb-main{aspect-ratio:1/1;display:grid;place-items:center;background:linear-gradient(160deg,#fafafa,#f1f5f9);overflow:hidden}
+  .thumb-main{aspect-ratio:1/1;background:linear-gradient(160deg,#fafafa,#f1f5f9);overflow:hidden}
   .thumb-main img{width:100%;height:100%;object-fit:cover;display:block}
   .thumb-strip{display:flex;gap:6px;padding:8px 12px 0}
-  .thumb-strip img{
-    width:44px;height:44px;border-radius:8px;object-fit:cover;cursor:pointer;
-    border:2px solid transparent;opacity:.75;transition:all .15s;
-  }
+  .thumb-strip img{width:42px;height:42px;border-radius:8px;object-fit:cover;cursor:pointer;border:2px solid transparent;opacity:.7;transition:all .15s}
   .thumb-strip img:hover{opacity:1}
   .thumb-strip img.on{border-color:var(--accent);opacity:1}
-  .card-body{padding:12px 14px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .card-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .badge-row{display:flex;gap:6px;align-items:center}
+  .badge{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;padding:3px 8px;border-radius:999px}
+  .badge.b2{background:#ecfdf5;color:#047857}
+  .badge.b4{background:#fff1f2;color:#be123c}
   .card h3{font-size:.95rem;font-weight:700;line-height:1.3}
-  .cat{font-size:.75rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
-  .price-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto}
-  .price{font-weight:800;font-size:1.02rem;color:var(--accent)}
-  .price small{font-weight:600;color:var(--muted);font-size:.78rem}
-  .order{
-    background:var(--accent);color:#fff;border:0;border-radius:9px;padding:10px 14px;
-    font-weight:700;font-size:.85rem;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;
-    min-height:44px;
-  }
+  .price-line{display:flex;align-items:baseline;gap:6px;margin-top:auto}
+  .price-line .dari{font-size:.72rem;color:var(--muted);font-weight:600}
+  .price-line .harga{font-size:1.15rem;font-weight:800;color:var(--accent)}
+  .tiers{display:flex;gap:5px;flex-wrap:wrap}
+  .tier{background:#f3f4f6;border-radius:6px;padding:3px 7px;font-size:.68rem;font-weight:700;color:#374151}
+  .row-bot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:2px}
+  .order{background:var(--accent);color:#fff;border:0;border-radius:9px;padding:10px 16px;font-weight:700;font-size:.85rem;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;gap:6px}
   .order:hover{filter:brightness(1.07)}
 
   /* ---------- Footer ---------- */
-  footer{border-top:1px solid var(--line);background:#fafafa;margin-top:auto}
-  .foot{max-width:1100px;margin:0 auto;padding:32px 20px;display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between}
-  .foot h4{font-size:.85rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
-  .foot p,.foot a{color:var(--muted);font-size:.9rem;text-decoration:none;display:block;margin-top:4px}
+  footer{border-top:1px solid var(--line);background:#fff;margin-top:auto}
+  .foot{max-width:1080px;margin:0 auto;padding:30px 20px;display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between}
+  .foot h4{font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
+  .foot p,.foot a{color:var(--muted);font-size:.88rem;text-decoration:none;display:block;margin-top:4px}
   .foot a:hover{color:var(--ink)}
-  .note{max-width:1100px;margin:0 auto;padding:0 20px 24px;color:#9ca3af;font-size:.75rem}
+  .note{max-width:1080px;margin:0 auto;padding:0 20px 22px;color:#9ca3af;font-size:.75rem}
 
-  /* ---------- Floating WhatsApp ---------- */
-  .wa-float{
-    position:fixed;right:20px;bottom:20px;width:56px;height:56px;border-radius:50%;
-    background:#25d366;display:grid;place-items:center;box-shadow:0 6px 20px rgba(37,211,102,.4);z-index:60;
-  }
-  .wa-float svg{width:30px;height:30px;fill:#fff}
+  /* ---------- WA float ---------- */
+  .wa-float{position:fixed;right:18px;bottom:18px;width:54px;height:54px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 6px 18px rgba(37,211,102,.4);z-index:60}
+  .wa-float svg{width:29px;height:29px;fill:#fff}
 
-  @media (max-width:560px){
-    .banner h1{font-size:1.2rem}
+  @media (max-width:680px){
+    .hero{grid-template-columns:1fr}
+    .hero-card{min-height:180px}
+    .cats{grid-template-columns:1fr}
+    .grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
     .nav{padding:10px 14px}
-    .grid{padding:0 14px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
   }
-  @media (prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto}
-    .card{transition:none}
-  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{transition:none}}
 </style>
 </head>
 <body>
 
 <header>
   <div class="nav">
-    <a class="brand" href="#"><span class="dot">M</span> Maryam Store</a>
+    <a class="brand" href="#"><span class="dot" id="brandDot">M</span><span id="brandName">Maryam Store</span></a>
     <nav class="nav-links">
-      <a href="#semua" class="active" data-filter="semua">Semua</a>
-      <a href="#semua" data-filter="bawah2">Bawah RM2</a>
-      <a href="#semua" data-filter="bawah4">Bawah RM4</a>
+      <a href="#semua">Semua</a>
+      <a href="#semua" data-cat="bawah2">Bawah RM2</a>
+      <a href="#semua" data-cat="bawah4">Bawah RM4</a>
     </nav>
   </div>
 </header>
 
-<section class="banner">
-  <div class="banner-inner">
-    <div>
-      <h1>Borong Botol &amp; Shaker<br>Terus dari Maryam Store 💪</h1>
-      <p>Harga kilang, unit borong, siap untuk jualan semula. Order mudah — terus WhatsApp, boleh campur jenis.</p>
-      <span class="tag">MOQ 10 unit • Seluruh Malaysia</span>
-    </div>
-  </div>
-</section>
+<!-- HERO 2 GAMBAR -->
+<section class="wrap hero" id="hero"></section>
 
-<div class="chips" role="group" aria-label="Tapis produk">
-  <button class="chip active" data-filter="semua">Semua Produk</button>
-  <button class="chip" data-filter="bawah2">Bawah RM2</button>
-  <button class="chip" data-filter="bawah4">Bawah RM4</button>
-</div>
+<!-- KATEGORI -->
+<section class="wrap cats" id="cats"></section>
 
-<main class="grid" id="semua"></main>
+<!-- PRODUK -->
+<main class="wrap grid" id="semua"></main>
 
 <footer>
   <div class="foot">
@@ -147,8 +122,8 @@
     </div>
     <div>
       <h4>Hubungi</h4>
-      <a href="tel:+60176055349">📞 017-605 5349</a>
-      <a href="https://wa.me/60176055349" target="_blank" rel="noopener">💬 WhatsApp Order</a>
+      <a id="footTel">📞 017-605 5349</a>
+      <a id="footWa" target="_blank" rel="noopener">💬 WhatsApp Order</a>
     </div>
     <div>
       <h4>Juga di Platform</h4>
@@ -159,77 +134,98 @@
   <p class="note">* Harga borong ikut kuantiti — mesej WhatsApp untuk sebut harga penuh. © 2026 Maryam Store</p>
 </footer>
 
-<a class="wa-float" href="https://wa.me/60176055349?text=Assalamualaikum%2C%20saya%20nak%20tanya%20harga%20borong%20Maryam%20Store" target="_blank" rel="noopener" aria-label="WhatsApp">
+<a class="wa-float" id="waFloat" target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.6c1.8 1 3.8 1.6 5.8 1.6 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.9 1 1-4.7-.3-.4c-1-1.7-1.6-3.6-1.6-5.6C5.1 9.3 9.9 4.5 16 4.5S26.9 9.3 26.9 15 22.1 24.8 16 24.8zm5.4-7.1c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.5-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
 </a>
 
+<script src="config.js"></script>
 <script src="products.js"></script>
 <script>
-  const WHATSAPP = "60176055349";
+const C = SITE_CFG;
+document.getElementById("brandName").textContent = C.brand;
+document.getElementById("brandDot").textContent = C.brand[0] || "M";
+document.title = C.brand + " — " + C.tagline;
 
-  function cardHTML(p){
-    return `
-      <article class="card">
-        <div class="thumb-main">
-          <img src="${p.cover}" alt="${p.nama}" data-main loading="lazy">
+// --- HERO 2 gambar ---
+const heroEl = document.getElementById("hero");
+heroEl.innerHTML = [C.hero1, C.hero2].map((h,i) => `
+  <a class="hero-card" href="#semua">
+    <img src="${h.img}" alt="${h.title}" loading="lazy">
+    <div class="hero-txt">
+      <h2>${h.title}</h2><p>${h.sub}</p>
+      <span class="cta">Lihat Produk →</span>
+    </div>
+  </a>`).join("");
+
+// --- KATEGORI dengan kiraan produk ---
+const cats = [
+  { id:"semua", ic:"📦", nama:"Semua Produk" },
+  { id:"bawah2", ic:"💰", nama:"Bawah RM2" },
+  { id:"bawah4", ic:"🛍️", nama:"Bawah RM4" }
+];
+const catNama = { bawah2:"Bawah RM2", bawah4:"Bawah RM4" };
+function renderCats(){
+  const cnt = id => id==="semua" ? produk.length : produk.filter(p=>p.cat===id).length;
+  document.getElementById("cats").innerHTML = cats.map(c => `
+    <button class="cat-pill ${filter===c.id?'on':''}" data-cat="${c.id}">
+      <span class="ic">${c.ic}</span>
+      <span class="tx">${c.nama}<br><span class="cnt">${cnt(c.id)} produk</span></span>
+    </button>`).join("");
+  document.querySelectorAll(".cat-pill").forEach(b => b.onclick = () => { filter = b.dataset.cat; renderCats(); render(); });
+}
+let filter = "semua";
+
+// --- KAD PRODUK ---
+function tierChips(tier){
+  return (tier||"").split("/").map(t => `<span class="tier">${t.trim()}</span>`).join("");
+}
+function cardHTML(p){
+  return `
+    <article class="card">
+      <div class="thumb-main"><img src="${p.cover}" alt="${p.nama}" data-main loading="lazy"></div>
+      <div class="thumb-strip">
+        <img class="on" src="${p.cover}" data-swap alt="Cover">
+        <img src="${p.asal}" data-swap alt="Gambar produk">
+      </div>
+      <div class="card-body">
+        <div class="badge-row"><span class="badge ${p.cat==='bawah2'?'b2':'b4'}">${catNama[p.cat]}</span></div>
+        <h3>${p.nama}</h3>
+        <div class="tiers">${tierChips(p.tier)}</div>
+        <div class="price-line"><span class="dari">Dari</span><span class="harga">RM ${Number(p.harga).toFixed(2)}</span></div>
+        <div class="row-bot">
+          <span style="font-size:.72rem;color:var(--muted)">/unit borong</span>
+          <a class="order" target="_blank" rel="noopener"
+             href="https://wa.me/${C.wa}?text=${encodeURIComponent("Assalamualaikum, saya nak order: " + p.nama + " — berapa harga borong untuk 100/500/1000 pcs?")}">Order</a>
         </div>
-        <div class="thumb-strip" aria-label="Pilih gambar">
-          <img class="on" src="${p.cover}" alt="Cover" data-swap>
-          <img src="${p.asal}" alt="Gambar produk" data-swap>
-        </div>
-        <div class="card-body">
-          <span class="cat">${catLabel[p.cat]}</span>
-          <h3>${p.nama}</h3>
-          <div class="price-row">
-            <span class="price">Dari RM ${p.harga.toFixed(2)} <small>· ${p.tier}</small></span>
-            <a class="order" target="_blank" rel="noopener"
-               href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Assalamualaikum, saya nak order: " + p.nama + " — berapa harga borong untuk 100/500/1000 pcs?")}">
-              Order
-            </a>
-          </div>
-        </div>
-      </article>`;
-  }
-
-  function render(list){
-    document.getElementById("semua").innerHTML = list.map(cardHTML).join("");
-    // tukar gambar utama bila klik thumbnail
-    document.querySelectorAll(".thumb-strip").forEach(strip => {
-      const main = strip.parentElement.querySelector("[data-main]");
-      strip.querySelectorAll("[data-swap]").forEach(th => {
-        th.addEventListener("click", () => {
-          strip.querySelectorAll("[data-swap]").forEach(t => t.classList.remove("on"));
-          th.classList.add("on");
-          main.src = th.src;
-        });
-      });
-    });
-  }
-
-  let filter = "semua";
-  function apply(){
-    render(filter === "semua" ? produk : produk.filter(p => p.cat === filter));
-  }
-
-  document.querySelectorAll(".chip").forEach(chip => {
-    chip.addEventListener("click", () => {
-      document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
-      chip.classList.add("active");
-      filter = chip.dataset.filter;
-      apply();
+      </div>
+    </article>`;
+}
+function render(){
+  const list = filter==="semua" ? produk : produk.filter(p => p.cat === filter);
+  document.getElementById("semua").innerHTML = list.map(cardHTML).join("");
+  document.querySelectorAll(".thumb-strip").forEach(strip => {
+    const main = strip.parentElement.querySelector("[data-main]");
+    strip.querySelectorAll("[data-swap]").forEach(th => th.onclick = () => {
+      strip.querySelectorAll("[data-swap]").forEach(t => t.classList.remove("on"));
+      th.classList.add("on"); main.src = th.src;
     });
   });
-  document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-      document.querySelectorAll(".nav-links a").forEach(l => l.classList.remove("active"));
-      link.classList.add("active");
-      filter = link.dataset.filter;
-      document.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c.dataset.filter === filter));
-      apply();
-    });
-  });
+}
 
-  apply();
+// --- Header links ---
+document.querySelectorAll(".nav-links a[data-cat]").forEach(a => a.onclick = () => {
+  filter = a.dataset.cat; renderCats(); render();
+});
+
+// --- WhatsApp ---
+const waTxt = encodeURIComponent("Assalamualaikum, saya nak tanya harga borong " + C.brand);
+document.getElementById("waFloat").href = "https://wa.me/" + C.wa + "?text=" + waTxt;
+document.getElementById("footWa").href = "https://wa.me/" + C.wa;
+document.getElementById("footTel").href = "tel:+60" + C.wa;
+document.getElementById("footTel").textContent = "📞 017-605 5349";
+
+renderCats();
+render();
 </script>
 </body>
 </html>
