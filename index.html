@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Maryam Store — Borong Botol &amp; Shaker Murah</title>
+<link rel="preload" as="image" href="images/hero1.webp" fetchpriority="high">
+<link rel="preload" as="image" href="images/hero2.webp" fetchpriority="high">
 <style>
   :root{
     --ink:#171717; --muted:#6b7280; --line:#e5e7eb; --bg:#fafafa;
@@ -153,7 +155,7 @@ document.title = C.brand + " — " + C.tagline;
 const heroEl = document.getElementById("hero");
 heroEl.innerHTML = [C.hero1, C.hero2].map((h,i) => `
   <a class="hero-card ${h.align === 'right' ? 'r' : ''}" href="#semua">
-    <img src="${h.img}" alt="${h.title}" loading="lazy">
+    <img src="${h.img}" alt="${h.title}" fetchpriority="high" loading="eager">
     <div class="hero-txt">
       ${h.badge ? `<span class="hero-badge">${h.badge}</span>` : ""}
       <h2>${h.title}</h2><p>${h.sub}</p>
