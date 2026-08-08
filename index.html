@@ -30,7 +30,9 @@
   .hero-card{position:relative;border-radius:18px;overflow:hidden;min-height:230px;display:block;text-decoration:none;box-shadow:var(--shadow)}
   .hero-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .hero-card::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,.62) 0%,rgba(10,10,10,.18) 55%,rgba(10,10,10,0) 100%)}
+  .hero-card.r::after{background:linear-gradient(270deg,rgba(10,10,10,.62) 0%,rgba(10,10,10,.18) 55%,rgba(10,10,10,0) 100%)}
   .hero-txt{position:absolute;left:0;bottom:0;padding:22px;z-index:2;max-width:75%}
+  .hero-card.r .hero-txt{left:auto;right:0;text-align:right;max-width:75%}
   .hero-txt h2{color:#fff;font-size:1.35rem;letter-spacing:-.01em;line-height:1.15;text-shadow:0 2px 8px rgba(0,0,0,.3)}
   .hero-txt p{color:#fde8ec;font-size:.86rem;margin-top:6px;text-shadow:0 1px 4px rgba(0,0,0,.35)}
   .hero-card .cta{display:inline-block;margin-top:12px;background:#fff;color:var(--accent);font-weight:800;font-size:.8rem;padding:7px 14px;border-radius:999px}
@@ -150,7 +152,7 @@ document.title = C.brand + " — " + C.tagline;
 // --- HERO 2 gambar ---
 const heroEl = document.getElementById("hero");
 heroEl.innerHTML = [C.hero1, C.hero2].map((h,i) => `
-  <a class="hero-card" href="#semua">
+  <a class="hero-card ${h.align === 'right' ? 'r' : ''}" href="#semua">
     <img src="${h.img}" alt="${h.title}" loading="lazy">
     <div class="hero-txt">
       ${h.badge ? `<span class="hero-badge">${h.badge}</span>` : ""}
