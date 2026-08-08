@@ -190,6 +190,7 @@ function cardHTML(p){
       <div class="card-body">
         <div class="badge-row"><span class="badge ${p.cat==='bawah2'?'b2':'b4'}">${catNama[p.cat]}</span></div>
         <h3>${p.nama}</h3>
+        ${p.desc ? `<p style="font-size:.8rem;color:var(--muted);line-height:1.45">${p.desc}</p>` : ""}
         <div class="tiers">${tierChips(p.tier)}</div>
         <div class="price-line"><span class="dari">Dari</span><span class="harga">RM ${Number(p.harga).toFixed(2)}</span></div>
         <div class="row-bot">
