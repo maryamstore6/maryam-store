@@ -12,9 +12,8 @@ const SITE_CFG = {
   },
   "hero2": {
     "img": "images/hero2.webp",
-    "title": "Logo Sendiri, Harga Mula RM1.25",
-    "sub": "Cetak logo brand anda PERCUMA — tak perlu bayar extra. Sesuai untuk kedai, gym, farmasi & hadiah korporat.",
-    "badge": "LOGO PERCUMA!",
+    "title": "CETAK LOGO PERCUMA!",
+    "sub": "Harga mula RM1.25 — sesuai kedai, gym, farmasi & hadiah korporat.",
     "align": "right"
   }
 };
