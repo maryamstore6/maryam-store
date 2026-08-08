@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maryam Store — Borong Botol & Shaker Murah</title>
+<style>
+  :root{
+    --ink:#1a1a1a;
+    --muted:#6b7280;
+    --line:#e5e7eb;
+    --bg:#ffffff;
+    --accent:#e11d48;
+    --soft:#fff1f2;
+    --radius:12px;
+    --shadow:0 1px 2px rgba(0,0,0,.05), 0 4px 16px rgba(0,0,0,.06);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;
+  }
+  /* ---------- Navbar ---------- */
+  header{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.06)}
+  .nav{max-width:1100px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem;letter-spacing:-.01em;text-decoration:none;color:var(--ink)}
+  .brand .dot{width:34px;height:34px;border-radius:9px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:.85rem;flex:none}
+  .nav-links{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+  .nav-links a{padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--muted);font-weight:600;font-size:.9rem}
+  .nav-links a:hover{color:var(--ink);background:#f3f4f6}
+  .nav-links a.active{color:var(--accent);background:var(--soft)}
+
+  /* ---------- Banner ---------- */
+  .banner{max-width:1100px;margin:24px auto 8px;padding:0 20px}
+  .banner-inner{
+    background:linear-gradient(120deg,#fff1f2 0%,#ffe4e6 55%,#fff 100%);
+    border:1px solid var(--line);border-radius:16px;padding:28px 28px 26px;
+    display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between;
+  }
+  .banner h1{font-size:1.45rem;letter-spacing:-.02em;line-height:1.25}
+  .banner p{color:var(--muted);margin-top:6px;font-size:.95rem;max-width:34em}
+  .banner .tag{display:inline-block;margin-top:12px;background:var(--accent);color:#fff;font-size:.78rem;font-weight:700;padding:4px 10px;border-radius:999px}
+
+  /* ---------- Category chips ---------- */
+  .chips{max-width:1100px;margin:20px auto 0;padding:0 20px;display:flex;gap:8px;flex-wrap:wrap}
+  .chip{
+    border:1px solid var(--line);background:#fff;color:var(--ink);
+    padding:9px 16px;border-radius:999px;font-weight:600;font-size:.88rem;cursor:pointer;
+    min-height:44px;transition:all .15s;
+  }
+  .chip:hover{border-color:#d1d5db}
+  .chip.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+  /* ---------- Product grid ---------- */
+  .grid{max-width:1100px;margin:22px auto 60px;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+  .card{
+    border:1px solid var(--line);border-radius:var(--radius);background:#fff;overflow:hidden;
+    display:flex;flex-direction:column;transition:box-shadow .18s, transform .18s;
+  }
+  .card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+  .thumb-main{aspect-ratio:1/1;display:grid;place-items:center;background:linear-gradient(160deg,#fafafa,#f1f5f9);overflow:hidden}
+  .thumb-main img{width:100%;height:100%;object-fit:cover;display:block}
+  .thumb-strip{display:flex;gap:6px;padding:8px 12px 0}
+  .thumb-strip img{
+    width:44px;height:44px;border-radius:8px;object-fit:cover;cursor:pointer;
+    border:2px solid transparent;opacity:.75;transition:all .15s;
+  }
+  .thumb-strip img:hover{opacity:1}
+  .thumb-strip img.on{border-color:var(--accent);opacity:1}
+  .card-body{padding:12px 14px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .card h3{font-size:.95rem;font-weight:700;line-height:1.3}
+  .cat{font-size:.75rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+  .price-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto}
+  .price{font-weight:800;font-size:1.02rem;color:var(--accent)}
+  .price small{font-weight:600;color:var(--muted);font-size:.78rem}
+  .order{
+    background:var(--accent);color:#fff;border:0;border-radius:9px;padding:10px 14px;
+    font-weight:700;font-size:.85rem;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;
+    min-height:44px;
+  }
+  .order:hover{filter:brightness(1.07)}
+
+  /* ---------- Footer ---------- */
+  footer{border-top:1px solid var(--line);background:#fafafa;margin-top:auto}
+  .foot{max-width:1100px;margin:0 auto;padding:32px 20px;display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between}
+  .foot h4{font-size:.85rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
+  .foot p,.foot a{color:var(--muted);font-size:.9rem;text-decoration:none;display:block;margin-top:4px}
+  .foot a:hover{color:var(--ink)}
+  .note{max-width:1100px;margin:0 auto;padding:0 20px 24px;color:#9ca3af;font-size:.75rem}
+
+  /* ---------- Floating WhatsApp ---------- */
+  .wa-float{
+    position:fixed;right:20px;bottom:20px;width:56px;height:56px;border-radius:50%;
+    background:#25d366;display:grid;place-items:center;box-shadow:0 6px 20px rgba(37,211,102,.4);z-index:60;
+  }
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+
+  @media (max-width:560px){
+    .banner h1{font-size:1.2rem}
+    .nav{padding:10px 14px}
+    .grid{padding:0 14px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .card{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="#"><span class="dot">M</span> Maryam Store</a>
+    <nav class="nav-links">
+      <a href="#semua" class="active" data-filter="semua">Semua</a>
+      <a href="#semua" data-filter="bawah2">Bawah RM2</a>
+      <a href="#semua" data-filter="bawah4">Bawah RM4</a>
+    </nav>
+  </div>
+</header>
+
+<section class="banner">
+  <div class="banner-inner">
+    <div>
+      <h1>Borong Botol &amp; Shaker<br>Terus dari Maryam Store 💪</h1>
+      <p>Harga kilang, unit borong, siap untuk jualan semula. Order mudah — terus WhatsApp, boleh campur jenis.</p>
+      <span class="tag">MOQ 10 unit • Seluruh Malaysia</span>
+    </div>
+  </div>
+</section>
+
+<div class="chips" role="group" aria-label="Tapis produk">
+  <button class="chip active" data-filter="semua">Semua Produk</button>
+  <button class="chip" data-filter="bawah2">Bawah RM2</button>
+  <button class="chip" data-filter="bawah4">Bawah RM4</button>
+</div>
+
+<main class="grid" id="semua"></main>
+
+<footer>
+  <div class="foot">
+    <div>
+      <h4>Maryam Store</h4>
+      <p>Little Maryam Enterprise</p>
+      <p>No 6, Jalan Meranti 2/1, Taman Merdeka,<br>Batu Berendam, 75350 Melaka</p>
+    </div>
+    <div>
+      <h4>Hubungi</h4>
+      <a href="tel:+60176055349">📞 017-605 5349</a>
+      <a href="https://wa.me/60176055349" target="_blank" rel="noopener">💬 WhatsApp Order</a>
+    </div>
+    <div>
+      <h4>Juga di Platform</h4>
+      <p>Shopee • TikTok Shop • Lazada</p>
+      <p style="margin-top:10px">⏰ Isnin–Sabtu, 9pg–6ptg</p>
+    </div>
+  </div>
+  <p class="note">* Harga borong ikut kuantiti — mesej WhatsApp untuk sebut harga penuh. © 2026 Maryam Store</p>
+</footer>
+
+<a class="wa-float" href="https://wa.me/60176055349?text=Assalamualaikum%2C%20saya%20nak%20tanya%20harga%20borong%20Maryam%20Store" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.6c1.8 1 3.8 1.6 5.8 1.6 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.9 1 1-4.7-.3-.4c-1-1.7-1.6-3.6-1.6-5.6C5.1 9.3 9.9 4.5 16 4.5S26.9 9.3 26.9 15 22.1 24.8 16 24.8zm5.4-7.1c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.5-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
+<script>
+  const WHATSAPP = "60176055349";
+
+  // nama ditulis semula (maksud sama, ayat lain) | kategori | harga mulai (tier 100/500/1000 pcs)
+  const produk = [
+    { nama:"Botol Penutup Tekan",              cat:"bawah4", harga:3.00, tier:"RM3.40 / RM3.20 / RM3.00", cover:"images/covers/snap-lid.jpg",         asal:"images/9ef9R5bb4mh9RKIRhGYLqGVi1vdsBJvMWNuaQwIC.jpg" },
+    { nama:"Tumbler Gaya Premium",             cat:"bawah4", harga:3.20, tier:"RM3.50 / RM3.30 / RM3.20", cover:"images/covers/elegant-tumbler.jpg",  asal:"images/qcY0xfyG8CkCuXHxe9HHEcFuxUoYGlHxa9cEIDbO.jpg" },
+    { nama:"Shaker Minuman Sukan",             cat:"bawah4", harga:3.10, tier:"RM3.50 / RM3.30 / RM3.10", cover:"images/covers/sport-shaker.jpg",     asal:"images/lYPtSu926Sp4kYv7kRZg24fXxHsm5YTpuMjn3koO.jpg" },
+    { nama:"Cawan Plastik Kukuh",              cat:"bawah2", harga:1.60, tier:"RM1.80 / RM1.70 / RM1.60", cover:"images/covers/solid-cup.jpg",        asal:"images/gsM2OMtBUZppvtFbSkKNGuwJRYKHPydNi9wEZ2FE.jpg" },
+    { nama:"Cawan Mini Corak Bintang",         cat:"bawah2", harga:1.60, tier:"RM1.80 / RM1.70 / RM1.60", cover:"images/covers/star-mini.jpg",        asal:"images/oTFhLG2zaozg6O5p8zKGulb5Dip8D3TNjQ2zMNRf.jpg" },
+    { nama:"Cawan Plastik Warna-Warni",        cat:"bawah2", harga:0.90, tier:"RM1.40 / RM1.10 / RM0.90", cover:"images/covers/colorful-cup.jpg",     asal:"images/fl50YsNtrRp32fQkDJm6gs19uOis3UkcHqxMUaT9.jpg" },
+    { nama:"Botol Mini Berkilat",              cat:"bawah2", harga:1.60, tier:"RM1.80 / RM1.70 / RM1.60", cover:"images/covers/glossy-mini.jpg",      asal:"images/lNwXeM12frOokCTgL2pLWxRlLLcwD0Pp34lUs94c.jpg" },
+    { nama:"Botol Plastik Bening",             cat:"bawah2", harga:1.60, tier:"RM1.80 / RM1.70 / RM1.60", cover:"images/covers/transparent.jpg",      asal:"images/peXeKK9s65BMNMCexKSuwkfdAd46JdgKEwlfa9gf.jpg" },
+    { nama:"Botol Minum Bertutup Klip",        cat:"bawah2", harga:1.30, tier:"RM1.50 / RM1.40 / RM1.30", cover:"images/covers/clip-lids.jpg",        asal:"images/mDY8V2NR9ZXZSP37CH0ffkuBgsR9qZoyAZ2bZf0X.jpg" },
+    { nama:"Botol Minum Dua Ruang",            cat:"bawah4", harga:2.69, tier:"RM2.89 / RM2.79 / RM2.69", cover:"images/covers/double-cup.jpg",       asal:"images/PBjB4I6Lb0k1Kd0bzv3VLAd5jhOcJCrlPYciuiMO.jpg" },
+    { nama:"Botol Dua Ruang Bergagang",        cat:"bawah4", harga:2.90, tier:"RM3.10 / RM3.00 / RM2.90", cover:"images/covers/double-cup-handle.jpg", asal:"images/CLRu2ISxwrqTwAREJ5SWPsmNKmSVZf5vWpboQtbs.jpg" }
+  ];
+
+  const catLabel = { bawah2:"Bawah RM2", bawah4:"Bawah RM4" };
+
+  function cardHTML(p){
+    return `
+      <article class="card">
+        <div class="thumb-main">
+          <img src="${p.cover}" alt="${p.nama}" data-main loading="lazy">
+        </div>
+        <div class="thumb-strip" aria-label="Pilih gambar">
+          <img class="on" src="${p.cover}" alt="Cover" data-swap>
+          <img src="${p.asal}" alt="Gambar produk" data-swap>
+        </div>
+        <div class="card-body">
+          <span class="cat">${catLabel[p.cat]}</span>
+          <h3>${p.nama}</h3>
+          <div class="price-row">
+            <span class="price">Dari RM ${p.harga.toFixed(2)} <small>· ${p.tier}</small></span>
+            <a class="order" target="_blank" rel="noopener"
+               href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Assalamualaikum, saya nak order: " + p.nama + " — berapa harga borong untuk 100/500/1000 pcs?")}">
+              Order
+            </a>
+          </div>
+        </div>
+      </article>`;
+  }
+
+  function render(list){
+    document.getElementById("semua").innerHTML = list.map(cardHTML).join("");
+    // tukar gambar utama bila klik thumbnail
+    document.querySelectorAll(".thumb-strip").forEach(strip => {
+      const main = strip.parentElement.querySelector("[data-main]");
+      strip.querySelectorAll("[data-swap]").forEach(th => {
+        th.addEventListener("click", () => {
+          strip.querySelectorAll("[data-swap]").forEach(t => t.classList.remove("on"));
+          th.classList.add("on");
+          main.src = th.src;
+        });
+      });
+    });
+  }
+
+  let filter = "semua";
+  function apply(){
+    render(filter === "semua" ? produk : produk.filter(p => p.cat === filter));
+  }
+
+  document.querySelectorAll(".chip").forEach(chip => {
+    chip.addEventListener("click", () => {
+      document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+      chip.classList.add("active");
+      filter = chip.dataset.filter;
+      apply();
+    });
+  });
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      document.querySelectorAll(".nav-links a").forEach(l => l.classList.remove("active"));
+      link.classList.add("active");
+      filter = link.dataset.filter;
+      document.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c.dataset.filter === filter));
+      apply();
+    });
+  });
+
+  apply();
+</script>
+</body>
+</html>
