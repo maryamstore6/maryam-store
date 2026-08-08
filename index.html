@@ -34,6 +34,7 @@
   .hero-txt h2{color:#fff;font-size:1.35rem;letter-spacing:-.01em;line-height:1.15;text-shadow:0 2px 8px rgba(0,0,0,.3)}
   .hero-txt p{color:#fde8ec;font-size:.86rem;margin-top:6px;text-shadow:0 1px 4px rgba(0,0,0,.35)}
   .hero-card .cta{display:inline-block;margin-top:12px;background:#fff;color:var(--accent);font-weight:800;font-size:.8rem;padding:7px 14px;border-radius:999px}
+  .hero-badge{display:inline-block;background:#fbbf24;color:#78350f;font-weight:800;font-size:.72rem;letter-spacing:.04em;padding:4px 10px;border-radius:999px;margin-bottom:8px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
 
   /* ---------- Category pills ---------- */
   .cats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px auto 0}
@@ -152,6 +153,7 @@ heroEl.innerHTML = [C.hero1, C.hero2].map((h,i) => `
   <a class="hero-card" href="#semua">
     <img src="${h.img}" alt="${h.title}" loading="lazy">
     <div class="hero-txt">
+      ${h.badge ? `<span class="hero-badge">${h.badge}</span>` : ""}
       <h2>${h.title}</h2><p>${h.sub}</p>
       <span class="cta">Lihat Produk →</span>
     </div>

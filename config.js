@@ -11,7 +11,8 @@ const SITE_CFG = {
   },
   "hero2": {
     "img": "images/hero2.jpg",
-    "title": "JIMAT LANGSUNG DARI KAMI",
-    "sub": "Platform RM2.45 → Direct WhatsApp RM1.53. Jimat RM0.92/unit, satu chat terus order."
+    "title": "Logo Sendiri, Harga Mula RM1.25",
+    "sub": "Cetak logo brand anda PERCUMA — tak perlu bayar extra. Sesuai untuk kedai, gym, farmasi & hadiah korporat.",
+    "badge": "LOGO PERCUMA!"
   }
 };
